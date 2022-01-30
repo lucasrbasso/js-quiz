@@ -2,6 +2,7 @@ import { CreateAnswerService } from '../services/CreateAnswerService';
 import { UpdateAnswerService } from '../services/UpdateAnswerService';
 import { ShowAnswerService } from '../services/ShowAnswerService';
 import { ShowAllAnswersService } from '../services/ShowAllAnswersService';
+import { ShowAnswersByQuestionService } from '../services/ShowAnswersByQuestionService';
 import { DeleteAnswerService } from '../services/DeleteAnswerService';
 
 export class AnswerController {
@@ -49,6 +50,19 @@ export class AnswerController {
     try {
       const service = new ShowAllAnswersService();
       const result = await service.execute();
+
+      return response.status(200).json(result);
+    } catch (err) {
+      return response.json({ error: err.message });
+    }
+  }
+
+  async indexByQuestion(request, response) {
+    try {
+      const { questionId } = request.params;
+
+      const service = new ShowAnswersByQuestionService();
+      const result = await service.execute(questionId);
 
       return response.status(200).json(result);
     } catch (err) {

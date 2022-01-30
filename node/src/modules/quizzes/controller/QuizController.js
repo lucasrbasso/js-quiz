@@ -2,6 +2,7 @@ import { CreateQuizService } from '../services/CreateQuizService';
 import { UpdateQuizService } from '../services/UpdateQuizService';
 import { ShowQuizService } from '../services/ShowQuizService';
 import { ShowAllQuizzesService } from '../services/ShowAllQuizzesService';
+import { ShowQuizzesByTopicService } from '../services/ShowQuizzesByTopicService';
 import { DeleteQuizService } from '../services/DeleteQuizService';
 
 export class QuizController {
@@ -49,6 +50,19 @@ export class QuizController {
     try {
       const service = new ShowAllQuizzesService();
       const result = await service.execute();
+
+      return response.status(200).json(result);
+    } catch (err) {
+      return response.json({ error: err.message });
+    }
+  }
+
+  async indexByTopic(request, response) {
+    try {
+      const { topic_id } = request.params;
+
+      const service = new ShowQuizzesByTopicService();
+      const result = await service.execute(topic_id);
 
       return response.status(200).json(result);
     } catch (err) {

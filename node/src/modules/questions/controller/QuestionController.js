@@ -2,6 +2,7 @@ import { CreateQuestionService } from '../services/CreateQuestionService';
 import { UpdateQuestionService } from '../services/UpdateQuestionService';
 import { ShowQuestionService } from '../services/ShowQuestionService';
 import { ShowAllQuestionsService } from '../services/ShowAllQuestionsService';
+import { ShowQuestionsByQuizService } from '../services/ShowQuestionsByQuizService';
 import { DeleteQuestionService } from '../services/DeleteQuestionService';
 
 export class QuestionController {
@@ -56,12 +57,25 @@ export class QuestionController {
     }
   }
 
+  async indexByQuiz(request, response) {
+    try {
+      const { quizId } = request.params;
+
+      const service = new ShowQuestionsByQuizService();
+      const result = await service.execute(quizId);
+
+      return response.status(200).json(result);
+    } catch (err) {
+      return response.json({ error: err.message });
+    }
+  }
+
   async destroy(request, response) {
     try {
-      const { questionId } = request.params;
+      const { question_id } = request.params;
 
       const service = new DeleteQuestionService();
-      const result = await service.execute(questionId);
+      const result = await service.execute(question_id);
 
       return response.status(200).json(result);
     } catch (err) {
