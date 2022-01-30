@@ -1,5 +1,5 @@
 import prismaCLient from '../../../databases/prismaCliente';
-import AppError from '../../shared/errors/appError';
+import AppError from '../../shared/errors/AppError';
 
 class ShowQuizService {
   async execute(id) {
