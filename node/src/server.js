@@ -3,11 +3,13 @@ import 'express-async-errors';
 import 'dotenv/config';
 import AppError from './modules/shared/errors/AppError';
 import { routes } from './modules/shared/http/routes';
+import { errors } from 'celebrate';
 
 const app = express();
 
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
 app.use((err, request, response, _) => {
   console.error(err);
