@@ -5,7 +5,6 @@ import { topicRoutes } from '../../topics/routes';
 import { quizRoutes } from '../../quizzes/routes';
 import { questionRoutes } from '../../questions/routes';
 import { answerRoutes } from '../../answers/routes';
-import ensureAuthenticated from '../../users/middleware/ensureAuthenticate';
 
 const routes = Router();
 
