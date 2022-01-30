@@ -25,11 +25,11 @@ model Topics {
   image_url   String
   title       String
 
-  Quizes Quizes[]
+  Quizzes Quizzes[]
   @@map("topics")
 }
 
-model Quizes {
+model Quizzes {
   id        String @id @default(uuid())
   topic_id  String
   topic     Topics @relation(fields: [topic_id], references: [id])
@@ -38,13 +38,13 @@ model Quizes {
   level     Int
 
   Questions Questions[]
-  @@map("quizes")
+  @@map("quizzes")
 }
 
 model Questions {
   id        String @id @default(uuid())
   quiz_id   String
-  quiz      Quizes @relation(fields: [quiz_id], references: [id])
+  quiz      Quizzes @relation(fields: [quiz_id], references: [id])
   question  String
   image_url String
   answer    String

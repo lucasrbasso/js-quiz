@@ -4,7 +4,9 @@ class CreateTopicService {
   async execute(topic) {
     const newTopic = await prismaCLient.topics.create({
       data: {
-        topic,
+        title: topic.title,
+        image_url: topic.image_url,
+        description: topic.description,
       },
     });
 
