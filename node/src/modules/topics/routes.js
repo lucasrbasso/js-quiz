@@ -1,9 +1,12 @@
 import { Router } from 'express';
+import ensureAuthenticated from '../users/middleware/ensureAuthenticate';
 import { TopicController } from './controller/TopicController';
 
 const topicRoutes = Router();
 
 const topicController = new TopicController();
+
+topicRoutes.use(ensureAuthenticated);
 
 topicRoutes.post('/', topicController.create);
 topicRoutes.get('/:topicId', topicController.show);

@@ -5,10 +5,11 @@ import { topicRoutes } from '../../topics/routes';
 import { quizRoutes } from '../../quizzes/routes';
 import { questionRoutes } from '../../questions/routes';
 import { answerRoutes } from '../../answers/routes';
+import ensureAuthenticated from '../../users/middleware/ensureAuthenticate';
 
 const routes = Router();
 
-routes.use('/users',userRoutes);
+routes.use('/users', userRoutes);
 routes.use('/topics', topicRoutes);
 routes.use('/quizzes', quizRoutes);
 routes.use('/questions', questionRoutes);

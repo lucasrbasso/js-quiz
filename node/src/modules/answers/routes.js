@@ -1,9 +1,12 @@
 import { Router } from 'express';
+import ensureAuthenticated from '../users/middleware/ensureAuthenticate';
 import { AnswerController } from './controller/AnswerController';
 
 const answerRoutes = Router();
 
 const answerController = new AnswerController();
+
+answerRoutes.use(ensureAuthenticated);
 
 answerRoutes.post('/', answerController.create);
 answerRoutes.put('/:answerId', answerController.update);
