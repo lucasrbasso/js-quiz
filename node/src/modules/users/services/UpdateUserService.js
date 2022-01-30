@@ -3,7 +3,6 @@ import { compare } from 'bcrypt';
 import prismaCLient from '../../../databases/prismaCliente';
 import AppError from '../../shared/errors/AppError';
 
-
 class UpdateUserService {
   async execute({ name, email, password, old_password }, id) {
     const user = await prismaCLient.users.findFirst({
@@ -34,22 +33,19 @@ class UpdateUserService {
 
     if (password && !old_password) {
       throw new AppError(
-        'You need to inform the old password to set a new password',
+        'You need to inform the old password to set a new password'
       );
     }
 
     if (password && old_password) {
       const checkOldPassword = await compare(old_password, user.password);
-      
+
       if (!checkOldPassword) {
         throw new AppError('Old Password does not match!');
       }
 
       user.password = await hash(password, 10);
     }
-
-    console.log(id);
-    console.log(user);
 
     const userUpdated = await prismaCLient.users.update({
       where: {

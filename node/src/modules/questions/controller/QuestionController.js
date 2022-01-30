@@ -72,10 +72,10 @@ export class QuestionController {
 
   async destroy(request, response) {
     try {
-      const { question_id } = request.params;
+      const { questionId } = request.params;
 
       const service = new DeleteQuestionService();
-      const result = await service.execute(question_id);
+      const result = await service.execute(questionId);
 
       return response.status(200).json(result);
     } catch (err) {
