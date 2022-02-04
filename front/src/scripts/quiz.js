@@ -128,9 +128,6 @@ const newQuestionRequest = (index) => {
       questions[index].question;
   } else {
     // adicionar toast com numero de acertos
-
-    setTimeout(() => {
-      window.location.replace('topic.html');
-    }, 1500);
+    window.location.replace('topic.html');
   }
 };
