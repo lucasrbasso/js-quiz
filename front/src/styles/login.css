@@ -6,7 +6,7 @@
 }
 
 .form-container {
-  max-width: 40rem;
+  max-width: 20rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -22,13 +22,62 @@ form {
 }
 
 form input {
-  width: 25rem;
-  padding: 0.5rem;
+  width: 20rem;
+  padding: 0.675rem 1rem;
   border: none;
   border-radius: 3px;
   margin-bottom: 0.5rem;
+  background-color: #EEE;
 }
 
 form input::placeholder {
   color: #666666;
+}
+
+form button {
+  border: none;
+  padding: 0.675rem 1rem;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #D53F8C;
+
+  font-size: 1.1rem;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.already {
+  font-size: 1.1rem;
+  color: #d9d9d9;
+  margin-top: 1rem;
+}
+
+.already a {
+  color: #D53F8C;
+  margin-left: 3px;
+  font-weight: 700;
+}
+
+.error {
+  border: 3px solid #c53030;
+}
+
+.error_text {
+  display: none;
+  color: #c53030;
+  margin-bottom: 1rem;
+}
+
+.error_text_visible {
+  display: block;
+}
+
+#toast-container > div {
+  width: 95vw !important;
+}
+
+@media screen and (min-width: 768px) {
+  #toast-container > div {
+    width: 300px !important;
+  }
 }

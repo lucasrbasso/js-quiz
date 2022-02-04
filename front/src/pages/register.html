@@ -12,14 +12,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
+  
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-  <script src="../utils/redirectToIndexIfLogged.js" async="true"></script>
 </head>
 <body>
   <div class="app">
     <div class="form-container">
       <form id="user-form">
+        <div>
+          <input name="name" type="string" placeholder="Nome"/>
+          <p class="error_text" id="name_error"></p>
+        </div>
         <div>
           <input name="email" type="email" placeholder="E-mail"/>
           <p class="error_text" id="email_error"></p>
@@ -28,13 +32,17 @@
           <input name="password" type="password" placeholder="Senha"/>
           <p class="error_text" id="password_error"></p>
         </div>
-        <button type="button" class="btn" id="submitButton">Login</button>
+        <div>
+          <input name="password_confirmation" type="password" placeholder="Senha"/>
+          <p class="error_text" id="password_confirmation_error"></p>
+        </div>
+        <button type="button" class="btn" id="submitButton">Cadastrar</button>
       </form>
-      <p class="already">Ainda não tem uma conta?<a href="/register">Inscreva-se agora.</a></p>
+      <p class="already">Já tem conta?<a href="/login">Logue-se aqui.</a></p>
     </div>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <script type="module" src="../scripts/login.js"></script>
+  <script type="module" src="../scripts/register.js"></script>
 </body>
 </html>
