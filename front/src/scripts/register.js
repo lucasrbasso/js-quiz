@@ -1,10 +1,10 @@
-import validate from '../utils/validateLogin.js';
+import validate from '../utils/validateRegister.js';
 
 toastr.options.progressBar = true;
 toastr.options.closeDuration = 300;
 toastr.options.closeButton = true;
 
-const login = async (event) => {
+const createUser = async (event) => {
   event.preventDefault();
 
   const user = {};
@@ -12,20 +12,22 @@ const login = async (event) => {
   document.querySelectorAll('#user-form [name]')
     .forEach(input => user[input.name] = input);
 
+
   console.log(user);
 
-  const { email, password } = user;
+  const { name, email, password, password_confirmation } = user;
 
 
-  if(!validate(email, password)) {
+  if(!validate(name, email, password, password_confirmation)) {
     return;
   }
 
   try {
-    const req = await fetch('http://localhost:3000/users/authenticate', {
+    const req = await fetch('http://localhost:3000/users', {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
         body: JSON.stringify({
+            name: name.value,
             email: email.value,
             password: password.value
         }),
@@ -34,18 +36,16 @@ const login = async (event) => {
     const response = await req.json();
 
     if(req.ok) {
-      localStorage.setItem('@js-quiz:user', JSON.stringify(response.user));
-      localStorage.setItem('@js-quiz:token', response.token);
-      window.location.replace('/')
+      toastr.success('Realize login para começar a jogar!', 'Usuário registrado!');
     } else {
-      toastr.error(`${response.message}`, 'Erro ao realizar login!');
+      toastr.error(`${response.message}`, 'Erro ao cadastrar usuário!');
     }
     
   } catch(err) {
-    toastr.error('Tente novamente mais tarde!', 'Erro ao realizar login!');
+    toastr.error('Tente novamente mais tarde!', 'Erro ao cadastrar usuário!');
     console.error(`error: ${err}`);
   }
 }
 
 const submitButton = document.getElementById('submitButton');
-submitButton.addEventListener('click',login);
+submitButton.addEventListener('click',createUser);
