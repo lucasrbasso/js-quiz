@@ -1,0 +1,87 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: auto;
+}
+
+.Container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1120px;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+
+  height: 80px;
+  background: #d53f8c;
+  width: 730px;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 85%;
+}
+
+.QuestionNumber {
+  margin-right: 15px;
+}
+
+.QuestionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #ffffff;
+  font-size: 16px;
+  margin: 20px 0;
+  width: 730px;
+}
+
+.AnswersContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.Answer {
+  color: #000;
+}
+
+.AnswerButton {
+  background: #ffffff;
+  padding: 15px;
+  margin: 8px 0;
+  border-radius: 10px;
+  width: 720px;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.Question {
+  color: #ffffff;
+  font-weight: 700;
+  margin: 10px 20px;
+  width: 730px;
+}
+
+.Logo {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 30px;
+}

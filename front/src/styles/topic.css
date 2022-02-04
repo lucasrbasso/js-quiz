@@ -1,0 +1,80 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: auto;
+}
+
+.Container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1120px;
+}
+
+.Title {
+  margin-bottom: 40px;
+}
+
+.Content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Box {
+  background-color: rgb(213, 63, 140);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  font-size: 2rem;
+  border-radius: 5px;
+  width: 300px;
+  cursor: pointer;
+  position: relative;
+
+  transition: background-color 0.2s;
+}
+
+.box1,
+.box2 {
+  margin-right: 4rem;
+}
+
+.Box:hover {
+  background-color: rgba(213, 63, 140, 0.8);
+}
+
+.Section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.QuizzesSection {
+  display: flex;
+  gap: 4rem;
+}
+
+.Level {
+  position: absolute;
+
+  right: 15px;
+  bottom: 10px;
+  font-weight: 500;
+
+  font-size: 1rem;
+  color: #121214;
+}
+
+.Image {
+  width: 20px;
+  height: 20px;
+
+  margin-left: 8px;
+  opacity: 0.8;
+}
