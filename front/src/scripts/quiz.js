@@ -17,7 +17,6 @@ if (count === 0) {
       let flag = 0;
       allQuestions.map((fragment) => {
         questions.push(fragment);
-        console.log(fragment);
         if (flag === 0) {
           fetch(`http://localhost:3000/answers/question/${fragment.id}`, {
             method: 'GET',
@@ -28,7 +27,6 @@ if (count === 0) {
           })
             .then((response) => response.json())
             .then((answer) => {
-              console.log('answer', answer);
               document.getElementsByClassName('Answer1')[0].innerText =
                 answer[0].optionA;
               document.getElementsByClassName('Answer2')[0].innerText =
@@ -76,6 +74,12 @@ if (count === 0) {
 }
 
 const selectAnswer = (option) => {
+  const buttons = document.getElementsByClassName('AnswerButton');
+  buttons[0].setAttribute('disabled', true);
+  buttons[1].setAttribute('disabled', true);
+  buttons[2].setAttribute('disabled', true);
+  buttons[3].setAttribute('disabled', true);
+
   if (option === correctAnswer) {
     document.getElementById(option).style.backgroundColor = '#2e8b57';
     score += 1;
@@ -84,6 +88,10 @@ const selectAnswer = (option) => {
     setTimeout(() => {
       document.getElementById(option).style.backgroundColor = '#fff';
       newQuestionRequest(count);
+      buttons[0].removeAttribute('disabled');
+      buttons[1].removeAttribute('disabled');
+      buttons[2].removeAttribute('disabled');
+      buttons[3].removeAttribute('disabled');
     }, 1750);
   } else {
     document.getElementById(option).style.backgroundColor = '#c85a6b';
@@ -94,6 +102,10 @@ const selectAnswer = (option) => {
       document.getElementById(option).style.backgroundColor = '#fff';
       document.getElementById(correctAnswer).style.backgroundColor = '#fff';
       newQuestionRequest(count);
+      buttons[0].removeAttribute('disabled');
+      buttons[1].removeAttribute('disabled');
+      buttons[2].removeAttribute('disabled');
+      buttons[3].removeAttribute('disabled');
     }, 1750);
   }
 };
@@ -127,7 +139,25 @@ const newQuestionRequest = (index) => {
     document.getElementsByClassName('Question')[0].innerText =
       questions[index].question;
   } else {
-    // adicionar toast com numero de acertos
-    window.location.replace('topic.html');
+    Swal.fire({
+      title: 'Parabéns!',
+      text: `Você acertou ${score} ${score === 1 ? 'pergunta' : 'perguntas'}`,
+      imageUrl: '../assets/trophy.png',
+      background: '#a6a6a6',
+      imageHeight: 200,
+      imageAlt: 'Troféu',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp',
+      },
+      confirmButtonColor: '#d53f8c',
+      confirmButtonText: 'Voltar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.replace('/topic');
+      }
+    });
   }
 };
