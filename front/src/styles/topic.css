@@ -85,21 +85,18 @@
 
 .BackButton {
   border: 0;
-  background: #d53f8c;
-  padding: 15px;
-  border-radius: 5px;
-  width: 400px;
-  height: 75px;
+  color: #d53f8c;
+  background: transparent;
   font-size: 1.25rem;
-  color: #fff;
+
+  margin-top: -20px;
 
   cursor: pointer;
-
-  transition: background-color 0.2s;
+  transition: color 0.2s;
 }
 
 .BackButton:hover {
-  background: #d53f8cb0;
+  color: #d53f8cb0;
 }
 
 .hidden {

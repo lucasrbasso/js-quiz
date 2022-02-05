@@ -140,10 +140,13 @@ const newQuestionRequest = (index) => {
       questions[index].question;
   } else {
     Swal.fire({
-      title: 'Parabéns!',
-      text: `Você acertou ${score} ${score === 1 ? 'pergunta' : 'perguntas'}`,
+      title: "<span style='color: #fff'>" + 'Parabéns!' + '</span>',
+      html:
+        "<span style='color: #fff'>" +
+        `Você acertou ${score} ${score === 1 ? 'pergunta' : 'perguntas'}` +
+        '</span>',
       imageUrl: '../assets/trophy.png',
-      background: '#a6a6a6',
+      background: '#121214',
       imageHeight: 200,
       imageAlt: 'Troféu',
       showClass: {
