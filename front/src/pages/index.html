@@ -9,10 +9,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/header.css">
   <script src="../utils/validateUserSession.js"></script>
 </head>
 <body>
-  INDEX
+  <header class="header">
+    <h2 class="logo">
+      js<strong>.</strong>quiz
+    </h2>
+    <button type="button" id="profile" class="profile">
+      <p id="username"></p>
+      <img id="profileImage" src="../assets/user.jpg" >
+    </button>
+  </header>
+  <script src="../scripts/header.js"></script>
   <script src="../scripts/main.js"></script>
 </body>
 </html>

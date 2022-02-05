@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.logo strong {
+  color: #d53f8c;
+}
+
+.profile {
+  border: none;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.profile:hover {
+  cursor: pointer;
+  filter: brightness(0.96);
+}
+
+.profile p {
+  display: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+.profile img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+@media screen and (min-width: 720px) {
+  .profile p {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    max-width: 1120px;
+  }
+}
