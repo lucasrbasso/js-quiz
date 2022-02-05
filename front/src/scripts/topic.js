@@ -131,7 +131,7 @@ const selectTopic = (index) => {
       newButton = document.createElement('button');
       newButton.classList.add('BackButton');
       newButton.onclick = navigateToPreviousPage;
-      newButton.innerHTML = 'Voltar';
+      newButton.innerHTML = '< Voltar';
 
       newSection.appendChild(newButton);
     });
