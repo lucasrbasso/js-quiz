@@ -12,24 +12,25 @@
     />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/topic.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <script src="../utils/validateUserSession.js"></script>
+
     <title>Tópicos</title>
   </head>
   <body>
+    <header class="header">
+      <h2 class="logo">js<strong>.</strong>quiz</h2>
+      <button type="button" id="profile" class="profile">
+        <p id="username"></p>
+        <img id="profileImage" src="../assets/user.jpg" />
+      </button>
+    </header>
     <div class="Container">
       <h1 class="Title">Escolha um dos temas</h1>
-      <div class="Content">
-        <section class="Section can_be_hidden">
-          <div class="Box box1" onclick="selectTopic(0)"></div>
-          <div class="Box box2" onclick="selectTopic(1)"></div>
-        </section>
-        <section class="Section can_be_hidden">
-          <div class="Box box3" onclick="selectTopic(2)"></div>
-          <div class="Box box4" onclick="selectTopic(3)"></div>
-        </section>
-        <section class="QuizzesSection" id="QuizSection"></section>
-      </div>
+      <div class="Content"></div>
     </div>
 
+    <script src="../scripts/header.js"></script>
     <script src="../scripts/topic.js"></script>
   </body>
 </html>

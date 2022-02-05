@@ -12,8 +12,12 @@ app.get('/login', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'src', 'pages', 'login.html'));
 });
 
+app.get('/quiz', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'src', 'pages', 'quiz.html'));
+});
+
 app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'src', 'pages', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'src', 'pages', 'topic.html'));
 });
 
 app.listen(3333, () => console.log('Projeto rodando na porta 3333...'));

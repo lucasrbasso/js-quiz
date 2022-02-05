@@ -10,14 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="sweetalert2.min.css" />
+
+    <link rel="stylesheet" href="../styles/header.css" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/quiz.css" />
-    <title>Document</title>
+
+    <script src="../utils/validateUserSession.js"></script>
+    <title>Quiz</title>
   </head>
   <body>
+    <header class="header">
+      <h2 class="logo">js<strong>.</strong>quiz</h2>
+      <button type="button" id="profile" class="profile">
+        <p id="username"></p>
+        <img id="profileImage" src="../assets/user.jpg" />
+      </button>
+    </header>
     <div class="Container">
       <header class="Header">
-        <h1 class="Logo">historia</h1>
+        <h1 class="Logo"></h1>
       </header>
 
       <div class="Content">
@@ -58,6 +70,9 @@
         </div>
       </div>
     </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../scripts/header.js"></script>
     <script src="../scripts/quiz.js"></script>
   </body>
 </html>

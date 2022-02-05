@@ -1,5 +1,6 @@
 var topics = [];
 var quizzes = [];
+var sectionsLength = 0;
 
 fetch('http://localhost:3000/topics/', {
   method: 'GET',
@@ -10,19 +11,71 @@ fetch('http://localhost:3000/topics/', {
 })
   .then((response) => response.json())
   .then((allTopics) => {
-    let countId = 1;
-    allTopics.map((topic) => {
+    sectionsLength = allTopics.length;
+    let section;
+    allTopics.map((topic, index) => {
       topics.push(topic);
-      document.getElementsByClassName(`box${countId}`)[0].innerText =
-        topic.title;
-      countId += 1;
+      if ((index + 1) % 2 !== 0) {
+        const newSection = document.createElement('section');
+        newSection.classList.add('can_be_hidden');
+        newSection.classList.add('Section');
+        section = newSection;
+
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('Box');
+        newDiv.classList.add(`box${index + 1}`);
+        newDiv.innerHTML = topic.title;
+        newDiv.onclick = () => {
+          selectTopic(index);
+        };
+
+        document.getElementsByClassName('Content')[0].appendChild(newSection);
+        section.appendChild(newDiv);
+      } else {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('Box');
+        newDiv.classList.add(`box${index + 1}`);
+        newDiv.innerHTML = topic.title;
+        newDiv.onclick = () => {
+          selectTopic(index);
+        };
+
+        section.appendChild(newDiv);
+      }
     });
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('Box');
+    newDiv.classList.add('newTopics');
+    newDiv.classList.add(`box${allTopics.length}`);
+    newDiv.innerHTML = 'Mais em Breve...';
+
+    section.appendChild(newDiv);
   })
   .catch(console.error);
 
+const navigateToPreviousPage = () => {
+  document.getElementsByClassName('QuizzesSection')[0].remove();
+
+  const length = sectionsLength % 2 === 0 ? sectionsLength : sectionsLength - 1;
+
+  for (let i = 0; i < length; i++) {
+    document
+      .getElementsByClassName('can_be_hidden')
+      [i].classList.remove('hidden');
+  }
+};
+
 const selectTopic = (index) => {
-  document.getElementsByClassName('can_be_hidden')[0].remove();
-  document.getElementsByClassName('can_be_hidden')[0].remove();
+  const length = sectionsLength % 2 === 0 ? sectionsLength : sectionsLength - 1;
+
+  for (let i = 0; i < length; i++) {
+    document.getElementsByClassName('can_be_hidden')[i].classList.add('hidden');
+  }
+
+  const newSection = document.createElement('section');
+  newSection.classList.add('QuizzesSection');
+  newSection.classList.add('Section');
+  newSection.setAttribute('id', 'QuizSection');
 
   document.getElementsByClassName('Title')[0].innerText =
     'Escolha um dos quizzes';
@@ -40,9 +93,10 @@ const selectTopic = (index) => {
         var newDiv = document.createElement('div');
         newDiv.innerHTML = quiz.title;
         newDiv.classList.add('Box');
+        newDiv.classList.add('BoxQuiz');
         newDiv.onclick = () => {
           localStorage.setItem('@JsQuiz:quizId', quiz.id);
-          window.location.replace('quiz.html');
+          window.location.replace('/quiz');
         };
 
         const newSpan = document.createElement('span');
@@ -69,9 +123,16 @@ const selectTopic = (index) => {
         ('https://img.icons8.com/ios-filled/50/000000/low-connection.png');
         newImg.classList.add('Image');
 
-        document.getElementById('QuizSection').appendChild(newDiv);
+        document.getElementsByClassName('Content')[0].appendChild(newSection);
+        newSection.appendChild(newDiv);
         newDiv.appendChild(newSpan);
         newSpan.appendChild(newImg);
       });
+      newButton = document.createElement('button');
+      newButton.classList.add('BackButton');
+      newButton.onclick = navigateToPreviousPage;
+      newButton.innerHTML = 'Voltar';
+
+      newSection.appendChild(newButton);
     });
 };
