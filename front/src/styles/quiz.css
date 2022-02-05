@@ -83,10 +83,6 @@
   font-size: 30px;
 }
 
-.swal2-title {
-  color: #fff;
-}
-
 @media (max-width: 1024px) {
   .Logo {
     font-size: 1.5rem;

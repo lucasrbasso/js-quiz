@@ -155,9 +155,6 @@ const newQuestionRequest = (index) => {
       hideClass: {
         popup: 'animate__animated animate__fadeOutUp',
       },
-      customClass: {
-        title: 'swal2-title',
-      },
       confirmButtonColor: '#d53f8c',
       confirmButtonText: 'Voltar',
     }).then((result) => {
