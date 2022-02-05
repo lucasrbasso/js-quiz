@@ -14,6 +14,7 @@ export class ShowUserService {
     }
 
     const userReturn = {
+      id: user.id,
       name: user.name,
       email: user.email,
     }

@@ -1,0 +1,19 @@
+.form-id {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  margin-top: 1rem;
+}
+
+.deleteButton {
+  border: none;
+  margin-top: 2rem;
+  padding: 0.675rem 1rem;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #c53030;
+
+  font-size: 1.1rem;
+  color: #FFF;
+  font-weight: bold;
+}

@@ -24,7 +24,13 @@ export class CreateUserService {
       }
     })
 
-    return user;
+    const userResponse = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+    }
+
+    return userResponse;
   }
 }
 

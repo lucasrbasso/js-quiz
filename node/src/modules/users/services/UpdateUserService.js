@@ -58,7 +58,11 @@ class UpdateUserService {
       },
     });
 
-    return userUpdated;
+    return {
+      id: userUpdated.id,
+      name: userUpdated.name,
+      email: userUpdated.email,
+    };
   }
 }
 

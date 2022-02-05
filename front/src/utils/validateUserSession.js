@@ -17,9 +17,12 @@ verifyUser = async () => {
       },
     });
   
-    await req.json();
+    const response = await req.json();
   
     if(req.ok) {
+
+      localStorage.setItem('@js-quiz:user', JSON.stringify(response));
+
       return {
         user: JSON.parse(user),
         token,

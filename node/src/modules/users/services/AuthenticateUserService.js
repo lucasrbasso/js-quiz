@@ -26,6 +26,6 @@ export class AuthenticateUserService {
       expiresIn: "5d"
     });
     
-    return { user: {name: user.name }, token};
+    return { user: {name: user.name, id: user.id}, token};
   }
 }

@@ -12,11 +12,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-  
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 </head>
 <body>
+  <header class="header">
+    <h2 id="logo" class="logo">
+      js<strong>.</strong>quiz
+    </h2>
+  </header>
   <div class="app">
     <div class="form-container">
       <form id="user-form">
@@ -33,7 +37,7 @@
           <p class="error_text" id="password_error"></p>
         </div>
         <div>
-          <input name="password_confirmation" type="password" placeholder="Senha"/>
+          <input name="password_confirmation" type="password" placeholder="Confirmação de Senha"/>
           <p class="error_text" id="password_confirmation_error"></p>
         </div>
         <button type="button" class="btn" id="submitButton">Cadastrar</button>

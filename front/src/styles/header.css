@@ -10,6 +10,10 @@
   font-size: 2rem;
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
 .logo strong {
   color: #d53f8c;
 }
@@ -39,6 +43,22 @@
   border-radius: 50%;
   height: 50px;
   width: 50px;
+}
+
+.login {
+  padding: 1rem 3rem;
+  border-radius: 3rem;
+  background: transparent;
+  color: #d53f8c;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 3px solid #d53f8c;
+  transition: all 0.2s ease-in-out;
+}
+
+.login:hover {
+  background: #d53f8c;
+  color: #fff;
 }
 
 @media screen and (min-width: 720px) {

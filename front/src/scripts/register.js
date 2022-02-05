@@ -37,8 +37,14 @@ const createUser = async (event) => {
 
     if(req.ok) {
       toastr.success('Realize login para começar a jogar!', 'Usuário registrado!');
+      email.value = '';
+      name.value = '';
+      password.value = '';
+      password_confirmation.value = '';
     } else {
       toastr.error(`${response.message}`, 'Erro ao cadastrar usuário!');
+      password.value = '';
+      password_confirmation.value = '';
     }
     
   } catch(err) {
@@ -49,3 +55,7 @@ const createUser = async (event) => {
 
 const submitButton = document.getElementById('submitButton');
 submitButton.addEventListener('click',createUser);
+
+document.getElementById('logo').addEventListener('click', () => {
+  window.location.replace('/');
+})

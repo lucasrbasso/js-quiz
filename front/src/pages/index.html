@@ -10,18 +10,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/header.css">
-  <script src="../utils/validateUserSession.js"></script>
+  <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
   <header class="header">
     <h2 class="logo">
       js<strong>.</strong>quiz
     </h2>
-    <button type="button" id="profile" class="profile">
+    <button type="button" id="login" class="login">
+      LOGIN
+    </button>
+    <button type="button" id="profile" class="profile profile-hidden">
       <p id="username"></p>
-      <img id="profileImage" src="../assets/user.jpg" >
+      <img id="profileImage" src="../assets/user.jpg" />
     </button>
   </header>
+  <div class="container">
+    <div>
+      <div class="text">
+        <p>Olá, seja bem vindo ao js<strong>.</strong>quiz, um Quizz único de programação web. </p>
+      </div>
+      <button id="play">Vamos jogar!</button>
+    </div>
+    <img src="../assets/gaming.svg" alt="Gaming" />
+  </div>
+  <footer class="footer">Feito com ❤️ pelos alunos da Engenharia.</footer>
   <script src="../scripts/header.js"></script>
   <script src="../scripts/main.js"></script>
 </body>

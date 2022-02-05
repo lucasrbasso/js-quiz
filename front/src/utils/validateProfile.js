@@ -1,4 +1,4 @@
-const validate = (name, email, password, password_confirmation) => {
+const validate = (name, email, old_password, password, password_confirmation) => {
 
   toastr.options.progressBar = true;
   toastr.options.closeDuration = 300;
@@ -11,6 +11,9 @@ const validate = (name, email, password, password_confirmation) => {
   
   email.classList.remove('error');
   email.nextElementSibling.classList.remove('error_text_visible');
+
+  old_password.classList.remove('error');
+  old_password.nextElementSibling.classList.remove('error_text_visible');
 
   password.classList.remove('error');
   password.nextElementSibling.classList.remove('error_text_visible');
@@ -36,22 +39,32 @@ const validate = (name, email, password, password_confirmation) => {
     isValid = false
   }
 
-  if (!password.value || password.value.length < 6) {
-    password.classList.add('error');
-    password.nextElementSibling.innerText = "* A senha deve ter no mínimo 6 caracteres!"
-    password.nextElementSibling.classList.add('error_text_visible');
-    toastr.error('O campo senha está inválido', 'Dados incorretos!');
-    isValid = false
-  }
+  if(password.value.length > 0 || old_password.value.length > 0) {
 
-  if (!password_confirmation.value || password_confirmation.value !== password.value) {
-    password_confirmation.classList.add('error');
-    password_confirmation.nextElementSibling.innerText = "* A confirmação de senha e a senha não conferem!"
-    password_confirmation.nextElementSibling.classList.add('error_text_visible');
-    toastr.error('O campo confirmação de senha está inválido', 'Dados incorretos!');
-    isValid = false
-  }
+    if (!old_password.value) {
+      old_password.classList.add('error');
+      old_password.nextElementSibling.innerText = "* A senha antiga é obrigatório!"
+      old_password.nextElementSibling.classList.add('error_text_visible');
+      toastr.error('O campo senha está inválido', 'Dados incorretos!');
+      isValid = false
+    }
 
+    if (!password.value || password.value.length < 6) {
+      password.classList.add('error');
+      password.nextElementSibling.innerText = "* A senha deve ter no mínimo 6 caracteres!"
+      password.nextElementSibling.classList.add('error_text_visible');
+      toastr.error('O campo nova senha está inválido', 'Dados incorretos!');
+      isValid = false
+    } 
+     
+    if (!password_confirmation.value || password_confirmation.value !== password.value) {
+      password_confirmation.classList.add('error');
+      password_confirmation.nextElementSibling.innerText = "* A confirmação de senha e a senha não conferem!"
+      password_confirmation.nextElementSibling.classList.add('error_text_visible');
+      toastr.error('O campo confirmação de senha está inválido', 'Dados incorretos!');
+      isValid = false
+    }
+  }
   return isValid
 }
 
