@@ -6,26 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS - Quizz - Login</title>
 
-    <link rel="stylesheet" href="../styles/global.css" />
-    <link rel="stylesheet" href="../styles/login.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="app">
-      <div class="form-container">
-        <form>
-          <input name="email" type="email" placeholder="E-mail" />
-          <input name="password" type="password" placeholder="Senha" />
-          <button type="submit" class="btn">Login</button>
-        </form>
-        <p>Ainda não tem uma conta?<a href="#">Inscreva-se agora</a></p>
-      </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="../utils/redirectToIndexIfLogged.js" async="true"></script>
+</head>
+<body>
+  <div class="app">
+    <div class="form-container">
+      <form id="user-form">
+        <div>
+          <input name="email" type="email" placeholder="E-mail"/>
+          <p class="error_text" id="email_error"></p>
+        </div>
+        <div>
+          <input name="password" type="password" placeholder="Senha"/>
+          <p class="error_text" id="password_error"></p>
+        </div>
+        <button type="button" class="btn" id="submitButton">Login</button>
+      </form>
+      <p class="already">Ainda não tem uma conta?<a href="/register">Inscreva-se agora.</a></p>
     </div>
-    <script src="../scripts/login.js"></script>
-  </body>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script type="module" src="../scripts/login.js"></script>
+</body>
 </html>
