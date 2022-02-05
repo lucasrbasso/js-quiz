@@ -104,9 +104,31 @@
     font-weight: 600;
     font-size: 1.2rem;
   }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .container > div button {
+    margin-top: 4rem;
+  }
+
+  .container img {
+    display: block;
+    margin-top: 6rem;
+    width: 400px;
+  }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1220px) {
+
+  .container {
+    flex-direction: row;
+  }
+
+  .container > div button {
+    margin-top: 4rem;
+  }
 
   .container > div {
     display: flex;
@@ -123,6 +145,7 @@
 
   .container img {
     display: block;
+    margin-top: 0;
     width: 550px;
   }
 }
