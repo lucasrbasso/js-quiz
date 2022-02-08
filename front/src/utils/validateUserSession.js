@@ -29,14 +29,14 @@ verifyUser = async () => {
       };
   
     } else {
-      localStorage.clear('@js-quiz:user');
-      localStorage.clear('@js-quiz:token');
+      localStorage.removeItem('@js-quiz:user');
+      localStorage.removeItem('@js-quiz:token');
       window.location.replace('/login');
     }
     
   } catch(err) {
-    localStorage.clear('@js-quiz:user');
-    localStorage.clear('@js-quiz:token');
+    localStorage.removeItem('@js-quiz:user');
+    localStorage.removeItem('@js-quiz:token');
     window.location.replace('/login');
   }
 }
