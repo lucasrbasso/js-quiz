@@ -157,10 +157,8 @@ const newQuestionRequest = (index) => {
       },
       confirmButtonColor: '#d53f8c',
       confirmButtonText: 'Voltar',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.replace('/topic');
-      }
+    }).then(() => {
+      window.location.replace('/topic');
     });
   }
 };
