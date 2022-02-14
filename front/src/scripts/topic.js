@@ -5,7 +5,7 @@ var sectionsLength = 0;
 fetch('http://localhost:3000/topics/', {
   method: 'GET',
   headers: new Headers({
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1c3Rhdm9AdGVzdGUuY29tIiwiaWQiOiIyMzEyOWRjZS05MzM4LTQzN2EtOGRlYS1jYjI0NTEwZWE5Y2QiLCJpYXQiOjE2NDM5MzA0ODcsImV4cCI6MTY0NDM2MjQ4Nywic3ViIjoiMjMxMjlkY2UtOTMzOC00MzdhLThkZWEtY2IyNDUxMGVhOWNkIn0.wSpy6Yomx-n2B5E9VWneokhjlFc-Gu8UJDiF4fSzLqI`,
+    Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json; charset=utf-8',
   }),
 })
@@ -83,7 +83,7 @@ const selectTopic = (index) => {
   fetch(`http://localhost:3000/quizzes/topic/${topics[index].id}`, {
     method: 'GET',
     headers: new Headers({
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1c3Rhdm9AdGVzdGUuY29tIiwiaWQiOiIyMzEyOWRjZS05MzM4LTQzN2EtOGRlYS1jYjI0NTEwZWE5Y2QiLCJpYXQiOjE2NDM5MzA0ODcsImV4cCI6MTY0NDM2MjQ4Nywic3ViIjoiMjMxMjlkY2UtOTMzOC00MzdhLThkZWEtY2IyNDUxMGVhOWNkIn0.wSpy6Yomx-n2B5E9VWneokhjlFc-Gu8UJDiF4fSzLqI`,
+      Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json; charset=utf-8',
     }),
   })
