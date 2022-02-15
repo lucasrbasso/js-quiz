@@ -12,7 +12,7 @@
   background: transparent;
   border: none;
   color: #fff;
-  
+
   transition: all 0.2s ease-in-out;
 }
 
@@ -20,11 +20,11 @@
   filter: brightness(0.9);
 }
 
-.logout img{
+.logout img {
   width: 50px;
 }
 
-.logout p{
+.logout p {
   margin-left: 10px;
   font-size: 1.2rem;
   font-weight: 600;
@@ -39,7 +39,7 @@
   background-color: #c53030;
 
   font-size: 1.1rem;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -58,4 +58,8 @@ a {
 
 a:hover {
   color: #d53f8cb0;
+}
+
+.logo {
+  cursor: pointer;
 }

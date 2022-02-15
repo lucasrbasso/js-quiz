@@ -36,11 +36,8 @@ const login = async (event) => {
     if (req.ok) {
       localStorage.setItem('@js-quiz:user', JSON.stringify(response.user));
       localStorage.setItem('@js-quiz:token', response.token);
-      email.value = '';
-      password.value = '';
       window.location.replace('/');
     } else {
-      email.value = '';
       toastr.error(`${response.message}`, 'Erro ao realizar login!');
     }
   } catch (err) {
