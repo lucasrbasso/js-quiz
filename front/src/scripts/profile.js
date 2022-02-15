@@ -86,6 +86,7 @@ const updateUser = async (event) => {
 
       if (req.ok) {
         toastr.success('Os dados foram registrados!', 'Usuário atualizado!');
+        document.getElementById('username').innerText = name.value;
       } else {
         toastr.error(`${response.message}`, 'Erro ao atualizar usuário!');
       }
